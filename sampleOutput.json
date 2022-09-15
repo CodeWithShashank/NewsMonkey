@@ -1,7 +1,7 @@
   {
     "status": "ok",
-    "totalResults": 4,
-    "articles": [
+    "totalResults": 4, //totalResults can be any like 100,1000 etc. But, articles will be 5 only in one get request(i.e,fetch(url)). 5 because we have given 5 as a prop to pageSize in api endpoint.
+    "articles": [ //we have provided pageSize=5 in api endpoint,i.e,URl. So, it'll have at max 5 articles in one fetch.
         {
             "source": {
                 "id": "independent",

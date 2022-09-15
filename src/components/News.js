@@ -9,7 +9,6 @@ const News = (props)=>{
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1)
     const [totalResults, setTotalResults] = useState(0)
-    // document.title = `NewsMonkey - ${capitalizeFirstLetter(props.category)}`
 
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -31,7 +30,9 @@ const News = (props)=>{
         props.setProgress(100);
     }
     useEffect(() => {
+        document.title = `NewsMonkey - ${capitalizeFirstLetter(props.category)}`
         updateNews();
+        // eslint-disable-next-line
     }, [])
 
     const fetchMoreData = async() => {
@@ -46,7 +47,7 @@ const News = (props)=>{
         return (
             <>
                 <h1 className="text-center" style={{ margin: "90px 0px" }} >NewsMonkey - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
-                {/* {loading && <Spinner/>} */}
+                {loading && <Spinner/>}
                 <InfiniteScroll
                     dataLength={articles.length}
                     next={fetchMoreData}
